@@ -1,5 +1,5 @@
-using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using Microsoft.AspNetCore.Mvc;
 using TechAcadStudentsMVC.Models;
 
 namespace TechAcadStudentsMVC.Controllers
@@ -10,14 +10,46 @@ namespace TechAcadStudentsMVC.Controllers
         {
             return View();
         }
+
         public IActionResult Instructor(int id)
         {
             ViewBag.Id = id;
-            return View();
+
+            Instructor localInstructor = new Instructor()
+            {
+                Id = 1,
+                FirstName = "Erik",
+                LastName = "Gross"
+            };
+
+            return View(localInstructor);
         }
+
         public IActionResult Instructors()
         {
-            return View();
+            List<Instructor> instructors = new List<Instructor>()
+            {
+                new Instructor()
+                {
+                    Id = 1,
+                    FirstName = "Kaleb",
+                    LastName = "Smith"
+                },
+                new Instructor()
+                {
+                    Id = 2,
+                    FirstName = "Oliver",
+                    LastName = "Jones"
+                },
+                new Instructor()
+                {
+                    Id = 3,
+                    FirstName = "Parker",
+                    LastName = "Johnson"
+                }
+            };
+
+            return View(instructors);
         }
 
         public IActionResult Privacy()

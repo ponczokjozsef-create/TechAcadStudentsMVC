@@ -1,6 +1,13 @@
-﻿@{
-    ViewData["Title"] = "Instructors";
-}
+﻿@using TechAcadStudentsMVC.Models
+@model List<Instructor>
 
-<h1>@ViewData["Title"]</h1>
-<p>Meet the instructors of The Tech Academy.</p>
+<h2>
+    Instructors
+</h2>
+
+@{
+    foreach (Instructor instructor in Model)
+    {
+        <h4>@instructor.FirstName</h4>
+    }
+}
